@@ -116,6 +116,10 @@
       </div>
 
       <div class="flex items-center space-x-2.5">
+        <button id="btn-backend-config" class="flex items-center space-x-1.5 text-xs font-medium px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition" title="Configure Render backend URL">
+          <span id="backend-dot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span id="backend-label">Backend: Direct</span>
+        </button>
         <a href="https://github.com/Ad3n1x/datasaver-pro" target="_blank" class="hidden sm:flex items-center space-x-2 text-xs font-medium px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
           <i data-lucide="github" class="w-4 h-4 text-slate-300"></i>
           <span>GitHub</span>
@@ -499,6 +503,44 @@
       <div class="flex justify-end space-x-2 pt-3 border-t border-slate-800">
         <button onclick="closeModal('modal-budget')" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold">Cancel</button>
         <button onclick="saveBudgetSettings()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold">Save Budget</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backend Settings Modal (For Vercel -> Render Connection) -->
+  <div id="modal-backend" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
+            <i data-lucide="server" class="w-4 h-4"></i>
+          </div>
+          <h3 class="font-bold text-slate-100 text-base">Render Backend Connection</h3>
+        </div>
+        <button onclick="closeModal('modal-backend')" class="text-slate-400 hover:text-slate-100">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <p class="text-slate-300 leading-relaxed">
+          When frontend is hosted on <strong>Vercel</strong>, connect it to your <strong>Render</strong> backend service URL:
+        </p>
+        <div>
+          <label class="block text-slate-300 font-medium mb-1.5">Render Backend URL</label>
+          <input type="url" id="input-backend-url" placeholder="https://datasaver-backend.onrender.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-500 transition">
+          <span class="text-[11px] text-slate-500 mt-1 block">Leave empty to use same origin (relative /api paths).</span>
+        </div>
+
+        <div id="backend-test-status" class="hidden p-3 rounded-xl border text-xs"></div>
+      </div>
+
+      <div class="flex items-center justify-between pt-3 border-t border-slate-800">
+        <button onclick="resetBackendUrl()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 text-xs font-semibold">Reset to Default</button>
+        <div class="flex space-x-2">
+          <button onclick="testBackendConnection()" id="btn-test-backend" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 text-xs font-semibold">Test</button>
+          <button onclick="saveBackendUrl()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold">Save & Connect</button>
+        </div>
       </div>
     </div>
   </div>

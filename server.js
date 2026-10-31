@@ -98,8 +98,8 @@ const dashboardServer = http.createServer(async (req, res) => {
   res.setHeader('X-Author', 'Ad3n1x');
   res.setHeader('X-Repository', 'https://github.com/Ad3n1x/datasaver-pro');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-DataSaver-Client, X-DataSaver-Dev, Accept, Save-Data');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(204);

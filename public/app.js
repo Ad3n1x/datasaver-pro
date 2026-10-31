@@ -7,6 +7,15 @@ let trafficFilter = 'all';
 let trafficChart = null;
 let allTrafficRows = [];
 let deviceInfo = null;
+let activeEventSource = null;
+
+function getApiBase() {
+  const custom = localStorage.getItem('datasaver_backend_url');
+  if (custom && custom.trim() !== '') {
+    return custom.trim().replace(/\/+$/, '');
+  }
+  return '';
+}
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
+  updateBackendStatusUI();
   initChart();
   fetchInitialData();
   initSSE();
@@ -22,6 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setupEventListeners() {
+  // Backend config modal
+  const btnBackend = document.getElementById('btn-backend-config');
+  if (btnBackend) {
+    btnBackend.addEventListener('click', () => {
+      const currentUrl = localStorage.getItem('datasaver_backend_url') || '';
+      document.getElementById('input-backend-url').value = currentUrl;
+      const statusBox = document.getElementById('backend-test-status');
+      if (statusBox) statusBox.classList.add('hidden');
+      openModal('modal-backend');
+    });
+  }
+
   // Device setup modal
   document.getElementById('btn-device-setup').addEventListener('click', () => {
     openModal('modal-devices');
@@ -36,7 +58,7 @@ function setupEventListeners() {
   document.getElementById('btn-reset-stats').addEventListener('click', async () => {
     if (confirm('Are you sure you want to reset all bandwidth counters and cache?')) {
       try {
-        await fetch('/api/reset', { method: 'POST' });
+        await fetch(getApiBase() + '/api/reset', { method: 'POST' });
         fetchInitialData();
       } catch (e) {
         console.error(e);
@@ -49,6 +71,85 @@ function setupEventListeners() {
   document.getElementById('test-url-input').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') runUrlTest();
   });
+}
+
+function updateBackendStatusUI() {
+  const base = getApiBase();
+  const label = document.getElementById('backend-label');
+  const dot = document.getElementById('backend-dot');
+  if (!label || !dot) return;
+
+  const isVercel = window.location.hostname.includes('vercel.app');
+
+  if (base) {
+    try {
+      const parsed = new URL(base);
+      label.textContent = `Backend: ${parsed.hostname.split('.')[0]}`;
+      dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+    } catch (e) {
+      label.textContent = 'Backend: Custom';
+      dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+    }
+  } else if (isVercel) {
+    label.textContent = 'Set Render Backend';
+    dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-pulse';
+  } else {
+    label.textContent = 'Backend: Direct';
+    dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+  }
+}
+
+async function testBackendConnection() {
+  const input = document.getElementById('input-backend-url');
+  const statusBox = document.getElementById('backend-test-status');
+  let testUrl = input.value.trim().replace(/\/+$/, '');
+
+  if (!testUrl) {
+    testUrl = window.location.origin;
+  }
+
+  statusBox.className = 'p-3 rounded-xl border border-slate-700 bg-slate-950 text-slate-400 text-xs block';
+  statusBox.innerHTML = 'Testing connection to ' + testUrl + '...';
+
+  try {
+    const res = await fetch(testUrl + '/api/stats');
+    if (!res.ok) throw new Error('Status ' + res.status);
+    const data = await res.json();
+    statusBox.className = 'p-3 rounded-xl border border-emerald-500/40 bg-emerald-950/20 text-emerald-400 text-xs block';
+    statusBox.innerHTML = `✓ Connected! Backend active (Effective Mode: ${data.effectiveMode || 'standard'}).`;
+  } catch (err) {
+    statusBox.className = 'p-3 rounded-xl border border-red-500/40 bg-red-950/20 text-red-400 text-xs block';
+    statusBox.innerHTML = `✗ Connection failed: ${err.message}. Make sure your Render backend is deployed and running.`;
+  }
+}
+
+function saveBackendUrl() {
+  const input = document.getElementById('input-backend-url');
+  let url = input.value.trim().replace(/\/+$/, '');
+  if (url) {
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url;
+    }
+    localStorage.setItem('datasaver_backend_url', url);
+  } else {
+    localStorage.removeItem('datasaver_backend_url');
+  }
+
+  updateBackendStatusUI();
+  closeModal('modal-backend');
+  fetchInitialData();
+  initSSE();
+  fetchDeviceInfo();
+}
+
+function resetBackendUrl() {
+  localStorage.removeItem('datasaver_backend_url');
+  document.getElementById('input-backend-url').value = '';
+  updateBackendStatusUI();
+  closeModal('modal-backend');
+  fetchInitialData();
+  initSSE();
+  fetchDeviceInfo();
 }
 
 function initChart() {
@@ -103,11 +204,11 @@ function initChart() {
 
 async function fetchInitialData() {
   try {
-    const statsRes = await fetch('/api/stats');
+    const statsRes = await fetch(getApiBase() + '/api/stats');
     const stats = await statsRes.json();
     updateDashboardStats(stats);
 
-    const trafficRes = await fetch('/api/traffic');
+    const trafficRes = await fetch(getApiBase() + '/api/traffic');
     const trafficData = await trafficRes.json();
     allTrafficRows = trafficData.requests || [];
     renderTrafficTable();
@@ -117,9 +218,14 @@ async function fetchInitialData() {
 }
 
 function initSSE() {
-  const evtSource = new EventSource('/api/events');
+  if (activeEventSource) {
+    activeEventSource.close();
+  }
 
-  evtSource.onmessage = (event) => {
+  const sseUrl = (getApiBase() || '') + '/api/events';
+  activeEventSource = new EventSource(sseUrl);
+
+  activeEventSource.onmessage = (event) => {
     try {
       const data = JSON.parse(event.data);
       if (data.type === 'init' || data.type === 'settings' || data.type === 'reset') {
@@ -139,7 +245,7 @@ function initSSE() {
     }
   };
 
-  evtSource.onerror = () => {
+  activeEventSource.onerror = () => {
     console.warn('SSE disconnected, retrying in 3s...');
   };
 }
@@ -276,7 +382,7 @@ function highlightModeCard(mode) {
 async function setSaverMode(mode) {
   try {
     highlightModeCard(mode);
-    await fetch('/api/settings', {
+    await fetch(getApiBase() + '/api/settings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ mode })
@@ -366,7 +472,7 @@ async function runUrlTest() {
   if (window.lucide) lucide.createIcons();
 
   try {
-    const res = await fetch('/api/test-url', {
+    const res = await fetch(getApiBase() + '/api/test-url', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ targetUrl, mode: currentMode })
@@ -415,7 +521,8 @@ function fillTestUrl(url) {
 
 function surfUrl(targetUrl) {
   const mode = currentMode || 'standard';
-  window.location.href = `/browse?url=${encodeURIComponent(targetUrl)}&mode=${mode}`;
+  const base = getApiBase();
+  window.location.href = (base || '') + `/browse?url=${encodeURIComponent(targetUrl)}&mode=${mode}`;
 }
 
 function handleSurfSubmit(e) {
@@ -431,7 +538,7 @@ function handleSurfSubmit(e) {
 
 async function fetchDeviceInfo() {
   try {
-    const res = await fetch('/api/devices');
+    const res = await fetch(getApiBase() + '/api/devices');
     deviceInfo = await res.json();
 
     document.getElementById('pac-url-input-win').value = deviceInfo.pacUrl;
@@ -448,7 +555,7 @@ async function saveBudgetSettings() {
   const enforce = document.getElementById('check-enforce-limit').checked;
 
   try {
-    await fetch('/api/settings', {
+    await fetch(getApiBase() + '/api/settings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

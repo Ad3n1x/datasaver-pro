@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "framework": null,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Developer",
+          "value": "Ad3n1x (https://github.com/Ad3n1x)"
+        },
+        {
+          "key": "X-Powered-By",
+          "value": "DataSaver Pro by Ad3n1x"
+        },
+        {
+          "key": "X-Author",
+          "value": "Ad3n1x"
+        }
+      ]
+    }
+  ]
+}
