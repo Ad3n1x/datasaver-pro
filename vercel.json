@@ -1,27 +1,4 @@
 {
-  "outputDirectory": "public",
-  "cleanUrls": true,
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Developer",
-          "value": "Ad3n1x (https://github.com/Ad3n1x)"
-        },
-        {
-          "key": "X-Powered-By",
-          "value": "DataSaver Pro by Ad3n1x"
-        },
-        {
-          "key": "X-Backend-Origin",
-          "value": "https://datasaver-pro.onrender.com"
-        },
-        {
-          "key": "X-Author",
-          "value": "Ad3n1x"
-        }
-      ]
-    }
-  ]
+  "framework": null,
+  "cleanUrls": true
 }

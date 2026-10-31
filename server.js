@@ -64,7 +64,11 @@ const MIME_TYPES = {
 function serveStatic(req, res, pathname) {
   let safePath = pathname === '/' ? '/index.html' : pathname;
   safePath = path.normalize(safePath).replace(/^(\.\.[\/\\])+/, '');
-  const filePath = path.join(__dirname, 'public', safePath);
+  let filePath = path.join(__dirname, 'public', safePath);
+
+  if (!fs.existsSync(filePath)) {
+    filePath = path.join(__dirname, safePath);
+  }
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
@@ -344,10 +348,4 @@ process.on('SIGTERM', () => {
   process.exit(0);
 });
 
-if (process.env.VERCEL) {
-  module.exports = (req, res) => {
-    dashboardServer.emit('request', req, res);
-  };
-} else {
-  start();
-}
+start();

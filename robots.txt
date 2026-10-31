@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /browse
+
+# DataSaver Pro by Ad3n1x
+# Developer: https://github.com/Ad3n1x
+# Source: https://github.com/Ad3n1x/datasaver-pro
