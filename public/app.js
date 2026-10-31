@@ -9,12 +9,20 @@ let allTrafficRows = [];
 let deviceInfo = null;
 let activeEventSource = null;
 
+// Hardcoded Render backend endpoint
+const HARDCODED_BACKEND_URL = 'https://datasaver-pro.onrender.com';
+
 function getApiBase() {
   const custom = localStorage.getItem('datasaver_backend_url');
   if (custom && custom.trim() !== '') {
     return custom.trim().replace(/\/+$/, '');
   }
-  return '';
+  // Local development fallback
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return '';
+  }
+  // Default to hardcoded Render backend
+  return HARDCODED_BACKEND_URL;
 }
 
 // Initialize on DOM load
@@ -79,9 +87,10 @@ function updateBackendStatusUI() {
   const dot = document.getElementById('backend-dot');
   if (!label || !dot) return;
 
-  const isVercel = window.location.hostname.includes('vercel.app');
-
-  if (base) {
+  if (base.includes('datasaver-pro.onrender.com')) {
+    label.textContent = 'Backend: Render';
+    dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+  } else if (base) {
     try {
       const parsed = new URL(base);
       label.textContent = `Backend: ${parsed.hostname.split('.')[0]}`;
@@ -90,11 +99,8 @@ function updateBackendStatusUI() {
       label.textContent = 'Backend: Custom';
       dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
     }
-  } else if (isVercel) {
-    label.textContent = 'Set Render Backend';
-    dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-pulse';
   } else {
-    label.textContent = 'Backend: Direct';
+    label.textContent = 'Backend: Local';
     dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
   }
 }

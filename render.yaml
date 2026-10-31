@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: datasaver-backend
+    name: datasaver-pro
     env: node
     plan: free
     region: oregon

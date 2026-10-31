@@ -2,7 +2,20 @@
   "version": 2,
   "outputDirectory": "public",
   "cleanUrls": true,
-  "framework": null,
+  "rewrites": [
+    {
+      "source": "/api/:match*",
+      "destination": "https://datasaver-pro.onrender.com/api/:match*"
+    },
+    {
+      "source": "/browse",
+      "destination": "https://datasaver-pro.onrender.com/browse"
+    },
+    {
+      "source": "/proxy.pac",
+      "destination": "https://datasaver-pro.onrender.com/proxy.pac"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -14,6 +27,10 @@
         {
           "key": "X-Powered-By",
           "value": "DataSaver Pro by Ad3n1x"
+        },
+        {
+          "key": "X-Backend-Origin",
+          "value": "https://datasaver-pro.onrender.com"
         },
         {
           "key": "X-Author",
