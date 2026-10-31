@@ -344,4 +344,10 @@ process.on('SIGTERM', () => {
   process.exit(0);
 });
 
-start();
+if (process.env.VERCEL) {
+  module.exports = (req, res) => {
+    dashboardServer.emit('request', req, res);
+  };
+} else {
+  start();
+}

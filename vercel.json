@@ -1,21 +1,8 @@
 {
   "version": 2,
+  "buildCommand": "echo 'Static build complete'",
   "outputDirectory": "public",
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/api/:match*",
-      "destination": "https://datasaver-pro.onrender.com/api/:match*"
-    },
-    {
-      "source": "/browse",
-      "destination": "https://datasaver-pro.onrender.com/browse"
-    },
-    {
-      "source": "/proxy.pac",
-      "destination": "https://datasaver-pro.onrender.com/proxy.pac"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
