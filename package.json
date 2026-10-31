@@ -1,0 +1,19 @@
+{
+  "name": "datasaver-pro",
+  "version": "1.0.0",
+  "description": "Cross-device smart bandwidth optimizer, ad/tracker blocker, and data saver proxy.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "data-saver",
+    "bandwidth-optimizer",
+    "proxy",
+    "adblocker",
+    "traffic-monitor"
+  ],
+  "author": "DataSaver Pro Team",
+  "license": "MIT"
+}

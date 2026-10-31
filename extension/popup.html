@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <div class="logo">
+        <span class="icon">🛡️</span>
+        <div>
+          <h4>DataSaver Pro</h4>
+          <span class="badge">Active</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mode-selector">
+      <label class="mode-option" id="opt-standard">
+        <input type="radio" name="saver-mode" value="standard" checked>
+        <div class="mode-info">
+          <strong>Standard Saver</strong>
+          <small>Save-Data header + Block Autoplay (~50%)</small>
+        </div>
+      </label>
+
+      <label class="mode-option" id="opt-ultra">
+        <input type="radio" name="saver-mode" value="ultra">
+        <div class="mode-info">
+          <strong>Ultra Saver</strong>
+          <small>Block heavy fonts & media (~80%)</small>
+        </div>
+      </label>
+
+      <label class="mode-option" id="opt-emergency">
+        <input type="radio" name="saver-mode" value="emergency">
+        <div class="mode-info">
+          <strong>Emergency Mode</strong>
+          <small>Pure text & essential styles (95%+)</small>
+        </div>
+      </label>
+    </div>
+
+    <div class="stats-preview">
+      <div class="stat-item">
+        <span class="stat-label">Video Autoplay</span>
+        <span class="stat-val status-blocked">Blocked 🚫</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Save-Data Header</span>
+        <span class="stat-val status-active">Injected ✅</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="http://localhost:3000" target="_blank" class="btn-dashboard">Open Full Dashboard ↗</a>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

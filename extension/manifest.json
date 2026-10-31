@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "DataSaver Pro - Bandwidth Reducer",
+  "version": "1.0.0",
+  "description": "Reduces browser data usage by up to 80% with Save-Data headers, video autoplay blocking, and image optimization.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DataSaver Pro"
+  }
+}

@@ -1,0 +1,75 @@
+/* DataSaver Pro Custom Styles */
+
+/* Mode Card Active States */
+.mode-card {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mode-card.active-standard {
+  border-color: #10b981 !important;
+  background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.95)) !important;
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15), 0 8px 10px -6px rgba(16, 185, 129, 0.1);
+}
+
+.mode-card.active-standard .mode-badge {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.mode-card.active-ultra {
+  border-color: #06b6d4 !important;
+  background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.12), rgba(15, 23, 42, 0.95)) !important;
+  box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.15), 0 8px 10px -6px rgba(6, 182, 212, 0.1);
+}
+
+.mode-card.active-ultra .mode-badge {
+  background-color: rgba(6, 182, 212, 0.2) !important;
+  color: #22d3ee !important;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.mode-card.active-emergency {
+  border-color: #f59e0b !important;
+  background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), rgba(15, 23, 42, 0.95)) !important;
+  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.15), 0 8px 10px -6px rgba(245, 158, 11, 0.1);
+}
+
+.mode-card.active-emergency .mode-badge {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Row animations */
+@keyframes highlightNewRow {
+  0% {
+    background-color: rgba(16, 185, 129, 0.18);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.new-traffic-row {
+  animation: highlightNewRow 1.4s ease-out forwards;
+}
