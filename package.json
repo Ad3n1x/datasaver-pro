@@ -1,12 +1,10 @@
 {
   "name": "datasaver-pro",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Universal cloud & edge bandwidth optimizer, real-time web proxy, ad/tracker suppressor, and data reduction suite architected by Ad3n1x.",
-  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "echo 'Static build complete'",
     "test": "node test/runTests.js"
   },
   "repository": {

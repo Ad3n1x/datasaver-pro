@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "buildCommand": "echo 'Static build complete'",
   "outputDirectory": "public",
   "cleanUrls": true,
   "headers": [
