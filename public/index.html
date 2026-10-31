@@ -3,8 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DataSaver Pro - Bandwidth Optimizer & Data Reducer</title>
+
+  <!-- Core Meta Tags -->
+  <title>DataSaver Pro — Universal Bandwidth Optimizer & Data Reducer by Ad3n1x</title>
+  <meta name="description" content="Universal cloud & edge bandwidth optimizer, real-time web proxy, ad/tracker suppressor, and data reduction suite architected by Ad3n1x. Save 50% to 95% of data everywhere.">
+  <meta name="author" content="Ad3n1x">
+  <meta name="creator" content="Ad3n1x">
+  <meta name="publisher" content="Ad3n1x">
+  <meta name="application-name" content="DataSaver Pro">
+  <meta name="theme-color" content="#10b981">
+  <link rel="author" href="https://github.com/Ad3n1x">
+  <link rel="me" href="https://github.com/Ad3n1x">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/Ad3n1x/datasaver-pro">
+  <meta property="og:title" content="DataSaver Pro by Ad3n1x — Universal Bandwidth Optimizer">
+  <meta property="og:description" content="Reduce data usage everywhere by 50% to 95%. Real-time ad/tracker suppression, media downscaling, and cloud web proxy architected by Ad3n1x.">
+  <meta property="og:site_name" content="DataSaver Pro by Ad3n1x">
+  <meta property="og:see_also" content="https://github.com/Ad3n1x">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DataSaver Pro — Universal Bandwidth Optimizer by Ad3n1x">
+  <meta name="twitter:description" content="Cut web data usage everywhere by up to 95%. Open source cloud & local bandwidth reducer architected by Ad3n1x.">
+  <meta name="twitter:creator" content="@ad3n1x">
+  <meta name="twitter:site" content="@ad3n1x">
+
+  <!-- Schema.org JSON-LD Structured Metadata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DataSaver Pro",
+    "operatingSystem": "All (Web, Windows, macOS, Android, iOS)",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Universal cloud & edge bandwidth optimizer, real-time web proxy, ad/tracker suppressor, and data reduction suite.",
+    "url": "https://github.com/Ad3n1x/datasaver-pro",
+    "author": {
+      "@type": "Person",
+      "name": "Ad3n1x",
+      "url": "https://github.com/Ad3n1x",
+      "email": "adenix271@gmail.com"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Ad3n1x",
+      "url": "https://github.com/Ad3n1x"
+    },
+    "maintainer": {
+      "@type": "Person",
+      "name": "Ad3n1x",
+      "url": "https://github.com/Ad3n1x"
+    }
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -14,17 +76,10 @@
         extend: {
           colors: {
             brand: {
-              50: '#ecfdf5',
-              100: '#d1fae5',
               400: '#34d399',
               500: '#10b981',
               600: '#059669',
               700: '#047857'
-            },
-            dark: {
-              800: '#1e293b',
-              900: '#0f172a',
-              950: '#020617'
             }
           }
         }
@@ -37,9 +92,9 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased selection:bg-emerald-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased selection:bg-emerald-500 selection:text-white flex flex-col justify-between">
 
-  <!-- Top Navigation -->
+  <!-- Top Navigation Header -->
   <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
@@ -49,65 +104,116 @@
         <div>
           <div class="flex items-center space-x-2">
             <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">DataSaver Pro</span>
-            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30 uppercase tracking-wider">Active</span>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30 uppercase tracking-wider">Cloud & Edge</span>
           </div>
-          <p class="text-xs text-slate-400">Save Data Everywhere &bull; Cross-Device Gateway</p>
+          <p class="text-xs text-slate-400 flex items-center space-x-1">
+            <span>by</span>
+            <a href="https://github.com/Ad3n1x" target="_blank" class="font-semibold text-emerald-400 hover:text-emerald-300 transition">Ad3n1x</a>
+            <span class="text-slate-600">&bull;</span>
+            <span class="text-slate-500">Universal Bandwidth Optimizer</span>
+          </p>
         </div>
       </div>
 
-      <div class="flex items-center space-x-3">
-        <button id="btn-device-setup" class="flex items-center space-x-2 text-xs font-medium px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+      <div class="flex items-center space-x-2.5">
+        <a href="https://github.com/Ad3n1x/datasaver-pro" target="_blank" class="hidden sm:flex items-center space-x-2 text-xs font-medium px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          <i data-lucide="github" class="w-4 h-4 text-slate-300"></i>
+          <span>GitHub</span>
+        </a>
+        <button id="btn-device-setup" class="flex items-center space-x-1.5 text-xs font-medium px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
           <i data-lucide="smartphone" class="w-4 h-4 text-cyan-400"></i>
           <span>Connect Devices</span>
         </button>
-        <button id="btn-budget-settings" class="flex items-center space-x-2 text-xs font-medium px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+        <button id="btn-budget-settings" class="flex items-center space-x-1.5 text-xs font-medium px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
           <i data-lucide="sliders" class="w-4 h-4 text-emerald-400"></i>
-          <span>Data Limit</span>
+          <span>Budget</span>
         </button>
-        <button id="btn-reset-stats" title="Reset usage statistics" class="p-2 rounded-lg bg-slate-800 hover:bg-red-950/40 text-slate-400 hover:text-red-400 border border-slate-700 transition">
+        <button id="btn-reset-stats" title="Reset stats" class="p-2 rounded-lg bg-slate-800 hover:bg-red-950/40 text-slate-400 hover:text-red-400 border border-slate-700 transition">
           <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1 w-full">
 
-    <!-- Active Profile Mode Selector -->
+    <!-- Cloud Web Surfer / Direct Web Gateway Box -->
+    <div class="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/30 border border-emerald-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 uppercase tracking-wider">Web-First Gateway</span>
+            <h2 class="text-xl font-extrabold text-white">Cloud Web Surfer</h2>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">Browse any website directly on the web with live ad-stripping, video autoplay suppression, and asset compression.</p>
+        </div>
+
+        <div class="flex items-center space-x-2 text-xs">
+          <span class="text-slate-400">Quick Sites:</span>
+          <button onclick="surfUrl('https://news.ycombinator.com')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition">Hacker News</button>
+          <button onclick="surfUrl('https://en.wikipedia.org')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition">Wikipedia</button>
+          <button onclick="surfUrl('https://cnn.com')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition">CNN</button>
+        </div>
+      </div>
+
+      <form id="form-web-surfer" onsubmit="handleSurfSubmit(event)" class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+            <i data-lucide="globe" class="w-4 h-4 text-emerald-400"></i>
+          </div>
+          <input type="text" id="input-surf-url" placeholder="Enter any website (e.g. news.ycombinator.com, cnn.com)" value="https://news.ycombinator.com" class="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition font-mono">
+        </div>
+        <button type="submit" class="px-7 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center space-x-2">
+          <span>Browse in DataSaver</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+      <!-- Bookmarklet instruction -->
+      <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 gap-2">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="bookmark" class="w-4 h-4 text-amber-400"></i>
+          <span>Drag to Bookmarks bar:</span>
+          <a href="javascript:(function(){window.location.href=window.location.origin+'/browse?url='+encodeURIComponent(window.location.href);})();" class="font-semibold text-emerald-400 hover:underline px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 cursor-grab" title="Drag this to your bookmarks to open any site in DataSaver Pro">⚡ DataSaver Pro</a>
+        </div>
+        <span class="text-slate-500">Clicking the bookmarklet on any website loads it instantly in DataSaver Pro!</span>
+      </div>
+    </div>
+
+    <!-- Mode Selector Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <!-- Standard Mode -->
       <div id="card-mode-standard" onclick="setSaverMode('standard')" class="mode-card cursor-pointer rounded-2xl p-5 border transition-all duration-200 relative overflow-hidden bg-slate-900/90 border-slate-800 hover:border-slate-700">
         <div class="flex items-center justify-between mb-3">
           <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
             <i data-lucide="zap" class="w-5 h-5"></i>
           </div>
-          <span class="mode-badge text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400">50% Savings</span>
+          <span class="mode-badge text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400">~50% Savings</span>
         </div>
         <h3 class="font-bold text-slate-100 text-base mb-1">Standard Saver</h3>
         <p class="text-xs text-slate-400 leading-relaxed mb-3">Blocks trackers, ad networks & video autoplay pre-buffering. Injects <code class="text-emerald-400 bg-slate-800 px-1 py-0.5 rounded">Save-Data: on</code>.</p>
         <div class="text-[11px] text-slate-500 flex items-center space-x-1.5">
           <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span>Full web fidelity &bull; High speed</span>
+          <span>Full visual fidelity &bull; High speed</span>
         </div>
       </div>
 
-      <!-- Ultra Mode -->
       <div id="card-mode-ultra" onclick="setSaverMode('ultra')" class="mode-card cursor-pointer rounded-2xl p-5 border transition-all duration-200 relative overflow-hidden bg-slate-900/90 border-slate-800 hover:border-slate-700">
         <div class="flex items-center justify-between mb-3">
           <div class="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold">
             <i data-lucide="flame" class="w-5 h-5"></i>
           </div>
-          <span class="mode-badge text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400">80% Savings</span>
+          <span class="mode-badge text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400">~80% Savings</span>
         </div>
         <h3 class="font-bold text-slate-100 text-base mb-1">Ultra Saver</h3>
-        <p class="text-xs text-slate-400 leading-relaxed mb-3">Downsamples media, suppresses heavy custom fonts (Google Fonts/Typekit), strips social widgets.</p>
+        <p class="text-xs text-slate-400 leading-relaxed mb-3">Downsamples media, suppresses heavy remote web fonts (Google Fonts/Typekit), strips social widgets.</p>
         <div class="text-[11px] text-slate-500 flex items-center space-x-1.5">
           <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i>
           <span>Ideal for mobile hotspot & tethering</span>
         </div>
       </div>
 
-      <!-- Emergency Mode -->
       <div id="card-mode-emergency" onclick="setSaverMode('emergency')" class="mode-card cursor-pointer rounded-2xl p-5 border transition-all duration-200 relative overflow-hidden bg-slate-900/90 border-slate-800 hover:border-slate-700">
         <div class="flex items-center justify-between mb-3">
           <div class="w-9 h-9 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
@@ -116,7 +222,7 @@
           <span class="mode-badge text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-400">95%+ Savings</span>
         </div>
         <h3 class="font-bold text-slate-100 text-base mb-1">Emergency Text Mode</h3>
-        <p class="text-xs text-slate-400 leading-relaxed mb-3">Extreme data conservation: blocks all images, videos, gifs, audio, and heavy assets. Core text only.</p>
+        <p class="text-xs text-slate-400 leading-relaxed mb-3">Extreme conservation: blocks all images, videos, gifs, audio, and heavy assets. Core text only.</p>
         <div class="text-[11px] text-slate-500 flex items-center space-x-1.5">
           <i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i>
           <span>Low balance &bull; Roaming &bull; Weak signal</span>
@@ -124,11 +230,9 @@
       </div>
     </div>
 
-    <!-- Hero Metrics -->
+    <!-- Hero Metrics Row -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <!-- Total Saved -->
       <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 relative overflow-hidden group hover:border-emerald-500/50 transition">
-        <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/10 transition"></div>
         <div class="flex items-center justify-between text-slate-400 text-xs font-medium mb-2">
           <span>Data Saved</span>
           <i data-lucide="arrow-down-to-line" class="w-4 h-4 text-emerald-400"></i>
@@ -136,12 +240,11 @@
         <div class="flex items-baseline space-x-2">
           <span id="metric-saved" class="text-3xl font-extrabold text-emerald-400 tracking-tight">0.0 MB</span>
         </div>
-        <p class="text-[11px] text-slate-500 mt-2 flex items-center space-x-1">
+        <p class="text-[11px] text-slate-500 mt-2">
           <span class="text-emerald-400 font-semibold" id="metric-saved-sub">0% bandwidth eliminated</span>
         </p>
       </div>
 
-      <!-- Consumed -->
       <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 relative overflow-hidden group hover:border-slate-700 transition">
         <div class="flex items-center justify-between text-slate-400 text-xs font-medium mb-2">
           <span>Data Consumed</span>
@@ -150,12 +253,11 @@
         <div class="flex items-baseline space-x-2">
           <span id="metric-downloaded" class="text-3xl font-extrabold text-slate-100 tracking-tight">0.0 MB</span>
         </div>
-        <p class="text-[11px] text-slate-500 mt-2 flex items-center justify-between">
-          <span>Without Saver: <strong id="metric-potential" class="text-slate-300">0.0 MB</strong></span>
+        <p class="text-[11px] text-slate-500 mt-2">
+          Without Saver: <strong id="metric-potential" class="text-slate-300">0.0 MB</strong>
         </p>
       </div>
 
-      <!-- Savings Ratio -->
       <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 relative overflow-hidden group hover:border-slate-700 transition">
         <div class="flex items-center justify-between text-slate-400 text-xs font-medium mb-2">
           <span>Efficiency Rate</span>
@@ -169,10 +271,9 @@
         </p>
       </div>
 
-      <!-- Blocked Requests -->
       <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 relative overflow-hidden group hover:border-slate-700 transition">
         <div class="flex items-center justify-between text-slate-400 text-xs font-medium mb-2">
-          <span>Unwanted Traffic Blocked</span>
+          <span>Trackers Blocked</span>
           <i data-lucide="shield-alert" class="w-4 h-4 text-purple-400"></i>
         </div>
         <div class="flex items-baseline space-x-2">
@@ -185,7 +286,7 @@
       </div>
     </div>
 
-    <!-- Data Budget & Quota Bar -->
+    <!-- Data Budget & Usage Bar -->
     <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 relative">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
         <div>
@@ -193,7 +294,7 @@
             <h2 class="font-bold text-slate-100 text-base">Data Plan & Usage Budget</h2>
             <span id="budget-status-pill" class="text-[10px] bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30">Healthy</span>
           </div>
-          <p class="text-xs text-slate-400 mt-0.5">Enforce data limits to avoid surprise overages on mobile plans or roaming.</p>
+          <p class="text-xs text-slate-400 mt-0.5">Automated threshold enforcement prevents overage charges on mobile data.</p>
         </div>
         <div class="text-right">
           <span id="budget-text" class="text-sm font-bold text-slate-200">0 MB / 2,048 MB</span>
@@ -208,11 +309,10 @@
 
     <!-- Charts & Category Breakdown -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <!-- 24h Hourly Traffic Chart -->
       <div class="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-6">
         <div class="flex items-center justify-between mb-4">
           <div>
-            <h3 class="font-bold text-slate-100 text-base">Bandwidth Savings Timeline</h3>
+            <h3 class="font-bold text-slate-100 text-base">Savings Timeline</h3>
             <p class="text-xs text-slate-400">Hourly comparison of bytes saved vs downloaded</p>
           </div>
           <div class="flex items-center space-x-4 text-xs font-medium">
@@ -225,83 +325,16 @@
         </div>
       </div>
 
-      <!-- Categories breakdown -->
       <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
         <div>
           <h3 class="font-bold text-slate-100 text-base mb-1">Savings by Source</h3>
-          <p class="text-xs text-slate-400 mb-5">Where your data is being conserved</p>
-
-          <div class="space-y-4" id="category-bars">
-            <!-- Dynamic Category Rows -->
-          </div>
+          <p class="text-xs text-slate-400 mb-5">Where your data is conserved</p>
+          <div class="space-y-4" id="category-bars"></div>
         </div>
 
         <div class="pt-4 border-t border-slate-800/80 mt-4 text-xs text-slate-400 flex items-center justify-between">
-          <span>Active Filter Engine</span>
-          <span class="text-emerald-400 font-medium">v1.0 Ready</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Live URL & Media Compression Playground -->
-    <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-        <div>
-          <div class="flex items-center space-x-2">
-            <div class="w-7 h-7 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold">
-              <i data-lucide="test-tube" class="w-4 h-4"></i>
-            </div>
-            <h3 class="font-bold text-slate-100 text-base">Interactive URL Savings Analyzer</h3>
-          </div>
-          <p class="text-xs text-slate-400 mt-1">Test any website or asset to simulate how much data DataSaver Pro trims off.</p>
-        </div>
-        <div class="flex items-center space-x-2 text-xs">
-          <span class="text-slate-400">Preset test targets:</span>
-          <button onclick="fillTestUrl('https://news.ycombinator.com')" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Hacker News</button>
-          <button onclick="fillTestUrl('https://cnn.com')" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition">CNN</button>
-          <button onclick="fillTestUrl('https://images.unsplash.com/photo-1579546929518-9e396f3cc809')" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition">HD Image</button>
-        </div>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-3">
-        <div class="relative flex-1">
-          <input type="text" id="test-url-input" placeholder="https://example.com" value="https://news.ycombinator.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition">
-        </div>
-        <button id="btn-run-test" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold text-sm shadow-lg shadow-emerald-600/20 transition flex items-center justify-center space-x-2">
-          <i data-lucide="sparkles" class="w-4 h-4"></i>
-          <span>Analyze Savings</span>
-        </button>
-      </div>
-
-      <!-- Test Output Result Box -->
-      <div id="test-result-box" class="hidden mt-6 pt-6 border-t border-slate-800 space-y-4">
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-800">
-            <span class="text-[11px] text-slate-400 block mb-1">Standard Size</span>
-            <span id="test-original-size" class="text-lg font-bold text-slate-200">-</span>
-          </div>
-          <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-800">
-            <span class="text-[11px] text-slate-400 block mb-1">DataSaver Size</span>
-            <span id="test-optimized-size" class="text-lg font-bold text-emerald-400">-</span>
-          </div>
-          <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-800">
-            <span class="text-[11px] text-slate-400 block mb-1">Bytes Saved</span>
-            <span id="test-saved-size" class="text-lg font-bold text-teal-300">-</span>
-          </div>
-          <div class="p-3.5 bg-slate-950 rounded-xl border border-slate-800">
-            <span class="text-[11px] text-slate-400 block mb-1">Reduction Ratio</span>
-            <span id="test-reduction-percent" class="text-lg font-bold text-cyan-300">-</span>
-          </div>
-        </div>
-
-        <div id="test-blocked-assets-container" class="p-4 bg-slate-950/60 rounded-xl border border-slate-800/80">
-          <h4 class="text-xs font-semibold text-slate-300 mb-2 flex items-center space-x-1.5">
-            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
-            <span>Blocked Unwanted Third-Party Trackers & Bloatware:</span>
-          </h4>
-          <ul id="test-blocked-list" class="space-y-1 text-xs text-slate-400">
-            <!-- Dynamic items -->
-          </ul>
+          <span>Engineered by</span>
+          <a href="https://github.com/Ad3n1x" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-semibold">Ad3n1x</a>
         </div>
       </div>
     </div>
@@ -314,7 +347,7 @@
             <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
             <h3 class="font-bold text-slate-100 text-base">Live Intercepted Network Traffic</h3>
           </div>
-          <p class="text-xs text-slate-400 mt-0.5">Real-time inspection of requests across connected devices</p>
+          <p class="text-xs text-slate-400 mt-0.5">Real-time inspection of requests across connected devices & web surfer</p>
         </div>
         <div class="flex items-center space-x-2 text-xs">
           <span class="text-slate-400">Filter:</span>
@@ -338,7 +371,7 @@
           <tbody id="traffic-table-body" class="divide-y divide-slate-800/60 font-mono">
             <tr>
               <td colspan="5" class="py-8 text-center text-slate-500 font-sans">
-                No requests captured yet. Connect a browser or device via proxy to start saving!
+                Ready to optimize web traffic. Use Cloud Web Surfer or connect a device!
               </td>
             </tr>
           </tbody>
@@ -366,7 +399,6 @@
         </button>
       </div>
 
-      <!-- Setup Tabs -->
       <div class="flex border-b border-slate-800 gap-4 text-xs font-semibold">
         <button onclick="showDeviceTab('windows')" id="tab-btn-windows" class="device-tab-btn pb-2 text-emerald-400 border-b-2 border-emerald-400">Windows</button>
         <button onclick="showDeviceTab('android')" id="tab-btn-android" class="device-tab-btn pb-2 text-slate-400 hover:text-slate-200">Android</button>
@@ -374,32 +406,25 @@
         <button onclick="showDeviceTab('browser')" id="tab-btn-browser" class="device-tab-btn pb-2 text-slate-400 hover:text-slate-200">Chrome & Extension</button>
       </div>
 
-      <!-- Windows Content -->
       <div id="tab-content-windows" class="device-tab-content space-y-4 text-xs text-slate-300">
         <p class="leading-relaxed">Set Windows to automatically route network traffic through DataSaver Pro:</p>
         <div class="space-y-2">
           <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
-            <strong class="text-slate-200 block mb-1">Option A: Automatic PAC URL (Recommended)</strong>
+            <strong class="text-slate-200 block mb-1">Automatic PAC URL (Recommended)</strong>
             <span class="text-slate-400">Settings &gt; Network & Internet &gt; Proxy &gt; Use setup script &gt; Turn On.</span>
             <div class="flex items-center space-x-2 mt-2">
               <input type="text" readonly id="pac-url-input-win" class="w-full bg-slate-900 border border-slate-700 px-3 py-1.5 rounded-lg text-emerald-400 font-mono text-[11px]">
               <button onclick="copyToClipboard('pac-url-input-win')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg">Copy</button>
             </div>
           </div>
-          <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
-            <strong class="text-slate-200 block mb-1">Option B: Manual Proxy</strong>
-            <span class="text-slate-400">Manual proxy setup &gt; Proxy IP: <code class="text-emerald-400">127.0.0.1</code> Port: <code class="text-emerald-400">8888</code></span>
-          </div>
         </div>
       </div>
 
-      <!-- Android Content -->
       <div id="tab-content-android" class="device-tab-content hidden space-y-4 text-xs text-slate-300">
-        <p class="leading-relaxed">Connect your Android phone or tablet on the same WiFi:</p>
+        <p class="leading-relaxed">Connect your Android device:</p>
         <ol class="list-decimal list-inside space-y-2 text-slate-400">
-          <li>Open <strong>Settings &gt; Wi-Fi</strong> on your Android phone.</li>
-          <li>Tap the gear / settings icon next to your connected Wi-Fi network.</li>
-          <li>Tap <strong>Proxy</strong> and select <strong>Auto-config (PAC)</strong>.</li>
+          <li>Open <strong>Settings &gt; Wi-Fi</strong>.</li>
+          <li>Tap the gear next to your connected Wi-Fi &gt; Proxy &gt; <strong>Auto-config (PAC)</strong>.</li>
           <li>Enter the PAC URL:</li>
         </ol>
         <div class="flex items-center space-x-2">
@@ -408,14 +433,12 @@
         </div>
       </div>
 
-      <!-- iOS Content -->
       <div id="tab-content-ios" class="device-tab-content hidden space-y-4 text-xs text-slate-300">
         <p class="leading-relaxed">Connect your iPhone or iPad:</p>
         <ol class="list-decimal list-inside space-y-2 text-slate-400">
-          <li>Open <strong>Settings &gt; Wi-Fi</strong>.</li>
-          <li>Tap the blue <strong>(i)</strong> info button next to your Wi-Fi name.</li>
-          <li>Scroll to the bottom to <strong>Configure Proxy</strong> &gt; select <strong>Automatic</strong>.</li>
-          <li>Paste the PAC URL in the <strong>URL</strong> field:</li>
+          <li>Open <strong>Settings &gt; Wi-Fi</strong> &gt; tap the blue <strong>(i)</strong> next to your Wi-Fi name.</li>
+          <li>Scroll to <strong>Configure Proxy</strong> &gt; choose <strong>Automatic</strong>.</li>
+          <li>Enter the PAC URL:</li>
         </ol>
         <div class="flex items-center space-x-2">
           <input type="text" readonly id="pac-url-input-ios" class="w-full bg-slate-950 border border-slate-700 px-3 py-2 rounded-lg text-emerald-400 font-mono text-xs">
@@ -423,18 +446,13 @@
         </div>
       </div>
 
-      <!-- Browser Content -->
       <div id="tab-content-browser" class="device-tab-content hidden space-y-4 text-xs text-slate-300">
-        <p class="leading-relaxed">You can also load the built-in <strong>DataSaver Extension</strong> in Chrome, Edge, or Brave:</p>
+        <p class="leading-relaxed">Install the <strong>DataSaver Pro Extension by Ad3n1x</strong> in Chrome, Edge, or Brave:</p>
         <ol class="list-decimal list-inside space-y-2 text-slate-400">
           <li>Go to <code class="text-cyan-400">chrome://extensions</code> in your browser.</li>
-          <li>Enable <strong>Developer mode</strong> (toggle in top-right).</li>
-          <li>Click <strong>Load unpacked</strong>.</li>
-          <li>Select the <code class="text-emerald-400 font-mono">extension</code> folder in this project!</li>
+          <li>Enable <strong>Developer mode</strong> (top-right).</li>
+          <li>Click <strong>Load unpacked</strong> and select the <code class="text-emerald-400 font-mono">extension</code> folder in this repo.</li>
         </ol>
-        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-slate-400">
-          The extension will immediately enforce <code class="text-emerald-400">Save-Data: on</code> headers and suppress video autoplay across all browser tabs.
-        </div>
       </div>
 
       <div class="flex justify-end pt-4 border-t border-slate-800">
@@ -472,7 +490,7 @@
         <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-slate-800">
           <div>
             <span class="text-slate-200 font-semibold block">Strict Cutoff Enforcement</span>
-            <span class="text-[11px] text-slate-400">Auto-switch to Emergency Text Mode when quota is reached</span>
+            <span class="text-[11px] text-slate-400">Auto-switch to Emergency Mode when quota is reached</span>
           </div>
           <input type="checkbox" id="check-enforce-limit" class="w-4 h-4 text-emerald-500 rounded border-slate-700 bg-slate-900 focus:ring-0">
         </div>
@@ -484,6 +502,31 @@
       </div>
     </div>
   </div>
+
+  <!-- Footer with Developer Identity & Links -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 mt-12 py-6 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="font-extrabold text-slate-200">DataSaver Pro</span>
+        <span>&bull;</span>
+        <span>Architected & Engineered with ⚡ by</span>
+        <a href="https://github.com/Ad3n1x" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-bold transition flex items-center space-x-1">
+          <span>Ad3n1x</span>
+          <i data-lucide="external-link" class="w-3 h-3"></i>
+        </a>
+      </div>
+
+      <div class="flex items-center space-x-4 text-slate-400">
+        <a href="https://github.com/Ad3n1x/datasaver-pro" target="_blank" class="hover:text-slate-200 transition">GitHub Repository</a>
+        <span>&bull;</span>
+        <a href="https://github.com/Ad3n1x/datasaver-pro/issues" target="_blank" class="hover:text-slate-200 transition">Issues</a>
+        <span>&bull;</span>
+        <a href="/humans.txt" target="_blank" class="hover:text-slate-200 transition">humans.txt</a>
+        <span>&bull;</span>
+        <a href="/robots.txt" target="_blank" class="hover:text-slate-200 transition">robots.txt</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="/app.js"></script>
 </body>

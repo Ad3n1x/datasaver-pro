@@ -1,8 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "DataSaver Pro - Bandwidth Reducer",
-  "version": "1.0.0",
-  "description": "Reduces browser data usage by up to 80% with Save-Data headers, video autoplay blocking, and image optimization.",
+  "name": "DataSaver Pro - Bandwidth Reducer by Ad3n1x",
+  "version": "1.2.0",
+  "description": "Reduces browser data usage by up to 80% with Save-Data headers, video autoplay blocking, and image optimization. Developed by Ad3n1x.",
+  "author": "Ad3n1x <adenix271@gmail.com>",
+  "homepage_url": "https://github.com/Ad3n1x/datasaver-pro",
   "permissions": [
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
@@ -23,6 +25,6 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "DataSaver Pro"
+    "default_title": "DataSaver Pro by Ad3n1x"
   }
 }

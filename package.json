@@ -1,19 +1,51 @@
 {
   "name": "datasaver-pro",
-  "version": "1.0.0",
-  "description": "Cross-device smart bandwidth optimizer, ad/tracker blocker, and data saver proxy.",
+  "version": "1.2.0",
+  "description": "Universal cloud & edge bandwidth optimizer, real-time web proxy, ad/tracker suppressor, and data reduction suite architected by Ad3n1x.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "test": "node test/runTests.js"
   },
-  "keywords": [
-    "data-saver",
-    "bandwidth-optimizer",
-    "proxy",
-    "adblocker",
-    "traffic-monitor"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ad3n1x/datasaver-pro.git"
+  },
+  "homepage": "https://github.com/Ad3n1x/datasaver-pro#readme",
+  "bugs": {
+    "url": "https://github.com/Ad3n1x/datasaver-pro/issues"
+  },
+  "author": {
+    "name": "Ad3n1x",
+    "email": "adenix271@gmail.com",
+    "url": "https://github.com/Ad3n1x"
+  },
+  "contributors": [
+    {
+      "name": "Ad3n1x",
+      "url": "https://github.com/Ad3n1x"
+    }
   ],
-  "author": "DataSaver Pro Team",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "ad3n1x",
+    "datasaver",
+    "bandwidth-reducer",
+    "data-saver-web",
+    "cloud-proxy",
+    "adblocker",
+    "privacy-gateway",
+    "traffic-optimizer",
+    "save-data",
+    "metered-connection-optimizer",
+    "web-compressor"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/Ad3n1x"
+  }
 }

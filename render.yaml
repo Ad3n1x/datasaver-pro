@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: datasaver-pro
+    env: node
+    plan: free
+    buildCommand: npm test
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000

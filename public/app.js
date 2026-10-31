@@ -413,6 +413,22 @@ function fillTestUrl(url) {
   runUrlTest();
 }
 
+function surfUrl(targetUrl) {
+  const mode = currentMode || 'standard';
+  window.location.href = `/browse?url=${encodeURIComponent(targetUrl)}&mode=${mode}`;
+}
+
+function handleSurfSubmit(e) {
+  e.preventDefault();
+  const input = document.getElementById('input-surf-url');
+  let url = input.value.trim();
+  if (!url) return;
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    url = 'https://' + url;
+  }
+  surfUrl(url);
+}
+
 async function fetchDeviceInfo() {
   try {
     const res = await fetch('/api/devices');

@@ -146,6 +146,28 @@ async function run() {
 
   console.log('\n--- 4. Integration Test: Proxy & Dashboard Engine ---');
 
+  const { optimizeHtmlForWeb } = require('../lib/webProxy');
+
+  it('Cloud Web Proxy strips tracking scripts and injects DataSaver Pro header', () => {
+    const rawHtml = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <script src="https://google-analytics.com/analytics.js"></script>
+        </head>
+        <body>
+          <video autoplay preload="auto" src="test.mp4"></video>
+          <a href="https://example.com/subpage">Next</a>
+        </body>
+      </html>
+    `;
+    const optimized = optimizeHtmlForWeb(rawHtml, 'https://example.com', 'standard');
+    assert.strictEqual(optimized.blockedCount, 1);
+    assert.ok(optimized.content.includes('datasaver-web-bar'));
+    assert.ok(optimized.content.includes('preload="none"'));
+    assert.ok(optimized.content.includes('/browse?url=https%3A%2F%2Fexample.com%2Fsubpage'));
+  });
+
   const { PassThrough } = require('stream');
   const testBudget = new BudgetManager(path.join(__dirname, 'temp-budget.json'));
   const testCache = new CacheManager();

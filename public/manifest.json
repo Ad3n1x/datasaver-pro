@@ -1,0 +1,26 @@
+{
+  "name": "DataSaver Pro by Ad3n1x",
+  "short_name": "DataSaver",
+  "description": "Universal cloud & edge bandwidth optimizer, real-time web proxy, ad/tracker suppressor, and data reduction suite architected by Ad3n1x.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "developer": {
+    "name": "Ad3n1x",
+    "url": "https://github.com/Ad3n1x"
+  },
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
